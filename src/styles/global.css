@@ -46,6 +46,53 @@ h4 {
   font-family: var(--font-display);
 }
 
+/* ----------------------------------------------------------------------
+   Scroll-reveal micro-interaction. A `.reveal` element starts slightly
+   lower and transparent, and settles into place once IntersectionObserver
+   (see BaseLayout.astro's inline script) adds `.reveal-visible` as it
+   enters the viewport. Kept as plain CSS + ~15 lines of vanilla JS rather
+   than an animation library — this site has no other client JS budget to
+   spend on it. Respects reduced-motion.
+   ---------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ----------------------------------------------------------------------
+   Zellige motif — a thin repeating 8-point-star pattern used as a recurring
+   decorative thread (section dividers, footer texture) so the Moroccan
+   identity shows up more than once, instead of living only in the hero
+   illustration. Built as an inline SVG data-URI so it needs no extra asset
+   file and recolors via currentColor-friendly opacity tricks per use site.
+   ---------------------------------------------------------------------- */
+.zellige-pattern {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'><path d='M24 4l3.5 8.2L36 12l-6 6.2L31.8 24 24 20.7 16.2 24 18 18.2 12 12l8.5.2z' fill='none' stroke='%23ffffff' stroke-width='1'/></svg>");
+  background-repeat: repeat;
+}
+
+/* Standard "lift" hover used on cards across the site — a calm rest state,
+   one small deliberate motion on hover, nothing stacked on top of it. */
+.card-lift {
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(43, 24, 16, 0.12);
+}
+
 /* Simple placeholder block used everywhere a real photo will go later.
    Swap the element for a real <img> once photos arrive — see README. */
 .photo-placeholder {

@@ -71,5 +71,29 @@ const jsonLd = {
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Scroll-reveal: see the `.reveal` / `.reveal-visible` rules in
+      // global.css. One observer for the whole page — cheap, and elements
+      // already in view on load reveal immediately instead of waiting for
+      // a scroll event that may never come.
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && revealEls.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('reveal-visible'));
+      }
+    </script>
   </body>
 </html>
