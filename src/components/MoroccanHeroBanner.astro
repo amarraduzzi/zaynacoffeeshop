@@ -13,13 +13,18 @@
 //
 // Two copies of the same artwork are rendered below (desktop / mobile).
 // On wide screens `preserveAspectRatio="xMidYMid slice"` centers and crops
-// the banner — fine, because both corner clusters stay near the edges of a
-// wide viewport. On a narrow mobile viewport that same center-crop lands on
-// the empty middle of the illustration, so neither cluster was ever visible
-// — that's why the banner looked blank on phones. The mobile copy instead
-// uses `xMinYMid slice`, which keeps the left medallion cluster in frame.
-// Everything else (paths, colors, layout) is identical between the two —
-// desktop is untouched.
+// the banner across the FULL section height — fine on desktop, because both
+// corner clusters stay near the edges of a wide viewport.
+//
+// On mobile that "fill the whole section" approach broke two different ways:
+// centered (xMidYMid) cropping landed on the empty middle of the artwork, so
+// the banner looked blank — and later, left-aligned (xMinYMid) cropping
+// stretched the medallion across the section's full (and very tall, once
+// text stacks on phones) height, blowing it up to an unusably huge zoom.
+// The real fix is to stop tying the mobile artwork to the section's height
+// at all: it's now a fixed, compact strip pinned to the top of the section
+// (h-28 / h-36 below), so the zoom level is always predictable no matter how
+// tall the page content underneath happens to be. Desktop is untouched.
 interface Props {
   variant?: 'full' | 'strip';
   class?: string;
@@ -27,15 +32,15 @@ interface Props {
 const { variant = 'full', class: className = '' } = Astro.props;
 const height = variant === 'full' ? 500 : 260;
 const VARIANTS = [
-  { key: 'desktop', visibility: 'hidden md:block', align: 'xMidYMid' },
-  { key: 'mobile', visibility: 'md:hidden', align: 'xMinYMid' },
+  { key: 'desktop', wrapperClass: 'hidden md:block absolute inset-0 h-full w-full', align: 'xMidYMid' },
+  { key: 'mobile', wrapperClass: 'md:hidden absolute inset-x-0 top-0 w-full h-28', align: 'xMinYMid' },
 ];
 ---
 
-{VARIANTS.map(({ key, visibility, align }) => (
+{VARIANTS.map(({ key, wrapperClass, align }) => (
   <svg
     aria-hidden="true"
-    class:list={[visibility, 'pointer-events-none absolute inset-0 h-full w-full', className]}
+    class:list={['pointer-events-none', wrapperClass, className]}
     viewBox={`0 0 1600 ${height}`}
     preserveAspectRatio={`${align} slice`}
     fill="none"
