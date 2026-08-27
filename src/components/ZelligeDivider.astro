@@ -11,6 +11,13 @@ const { class: className = '' } = Astro.props;
 
 <div class:list={['flex items-center justify-center gap-3 py-2', className]} aria-hidden="true">
   <span class="h-px w-12 bg-border"></span>
-  <img src="/images/decor/star-navygold.webp" alt="" class="h-5 w-5 opacity-80" />
+  <svg width="16" height="16" viewBox="0 0 24 24" class="text-primary/50">
+    <path
+      d="M12 2l1.8 4.1L18 7l-3 3.1L15.9 14 12 12.1 8.1 14 9 10.1 6 7l4.2-.9z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.2"
+    />
+  </svg>
   <span class="h-px w-12 bg-border"></span>
 </div>
