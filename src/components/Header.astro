@@ -1,6 +1,6 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { identity, nav, orderSiteUrl } from '../config/site.config';
+import { identity, nav } from '../config/site.config';
 
 const currentPath = Astro.url.pathname;
 const locale = Astro.currentLocale ?? 'fr';
@@ -46,14 +46,12 @@ function isActive(href: string) {
           <span>·</span>
           <a href={getRelativeLocaleUrl('ar', '')} class:list={[locale === 'ar' && 'font-bold text-primary']}>AR</a>
         </div>
-        {orderSiteUrl && (
-          <a
-            href={orderSiteUrl}
-            class="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors"
-          >
-            Commander
-          </a>
-        )}
+        <a
+          href={getRelativeLocaleUrl(locale, 'menu')}
+          class="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors"
+        >
+          Commander
+        </a>
       </div>
 
       <button

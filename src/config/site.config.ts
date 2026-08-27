@@ -36,6 +36,10 @@ export const contact = {
     display: '06 15 81 06 80',
     href: 'tel:+212615810680',
   },
+  // Confirmed by the client (2026-08-27): same number as the phone contact,
+  // used as the WhatsApp order number on /menu. Digits only, country code,
+  // no + or spaces — this is the exact format wa.me needs.
+  whatsappNumber: '212615810680',
   // TODO: no email was visible on the Google listing — add one once available.
   email: null,
   // Plain Google Maps embed (no API key required).
@@ -77,15 +81,11 @@ export const socials = {
   tiktok: null as string | null,
 };
 
-// The companion WhatsApp order-landing-page engine, if/when Zayna gets one.
-// TODO: set the real URL, or remove the "Commander" CTA from Header.astro
-// if there is no separate order site.
-export const orderSiteUrl: string | null = null;
-
 // Two distinct menus by design (client instruction, 2026-08-27): "Carte" is
 // the in-store menu people read while sitting at the café; "Commander" is
-// the Glovo-sourced menu destined to become the site's own ordering flow
-// later. Keep them as separate pages/content files — do not merge.
+// the Glovo-sourced menu, now built as a real add-to-cart + WhatsApp-checkout
+// flow directly on this site (see src/cart/*) — NOT a separate project.
+// Keep the two menus as separate pages/content files — do not merge.
 export const nav = [
   { label: 'Accueil', href: '/' },
   { label: 'Carte', href: '/carte' },
