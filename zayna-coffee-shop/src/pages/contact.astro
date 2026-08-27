@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { contact, hours } from '../config/site.config';
+---
+
+<BaseLayout title="Contact" path="/contact">
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 lg:grid-cols-2">
+    <div>
+      <h1 class="font-display text-4xl font-bold">Contact</h1>
+      <dl class="mt-8 space-y-6 text-sm">
+        <div>
+          <dt class="font-semibold text-primary">Adresse</dt>
+          <dd class="text-text-muted mt-1">{contact.address.full}</dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-primary">Téléphone</dt>
+          <dd class="text-text-muted mt-1">
+            <a href={contact.phone.href} class="hover:underline">{contact.phone.display}</a>
+          </dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-primary">Horaires</dt>
+          <dd class="text-text-muted mt-1">{hours.displayText}</dd>
+          <dd class="text-text-muted text-xs mt-1">{hours.note}</dd>
+        </div>
+      </dl>
+
+      <div class="mt-10 aspect-video w-full overflow-hidden rounded-xl border border-border">
+        <iframe
+          src={contact.mapEmbedSrc}
+          class="h-full w-full"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Carte — Zayna Coffee Shop"
+        ></iframe>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="font-display text-2xl font-semibold">Envoyez-nous un message</h2>
+      <p class="mt-2 text-sm text-text-muted">
+        <!-- This form has no backend yet. Point the action at a form service
+             (Formspree, Web3Forms, Netlify Forms, ...) or your own endpoint
+             before launch. -->
+        Formulaire à connecter à un service d'envoi (ex. Formspree) avant la mise en ligne.
+      </p>
+      <form class="mt-6 space-y-4" action="#" method="POST">
+        <div>
+          <label for="name" class="block text-sm font-medium">Nom</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            class="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 text-sm focus:border-primary focus:outline-none"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 text-sm focus:border-primary focus:outline-none"
+          />
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            class="mt-1 w-full rounded-lg border border-border bg-surface px-4 py-2 text-sm focus:border-primary focus:outline-none"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors"
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
