@@ -11,20 +11,10 @@
 // `variant="strip"` = a shorter, single-corner version for page title bands
 // on the secondary pages, where vertical space is tighter.
 //
-// Two copies of the same artwork are rendered below (desktop / mobile).
-// On wide screens `preserveAspectRatio="xMidYMid slice"` centers and crops
-// the banner across the FULL section height — fine on desktop, because both
-// corner clusters stay near the edges of a wide viewport.
-//
-// On mobile that "fill the whole section" approach broke two different ways:
-// centered (xMidYMid) cropping landed on the empty middle of the artwork, so
-// the banner looked blank — and later, left-aligned (xMinYMid) cropping
-// stretched the medallion across the section's full (and very tall, once
-// text stacks on phones) height, blowing it up to an unusably huge zoom.
-// The real fix is to stop tying the mobile artwork to the section's height
-// at all: it's now a fixed, compact strip pinned to the top of the section
-// (h-28 / h-36 below), so the zoom level is always predictable no matter how
-// tall the page content underneath happens to be. Desktop is untouched.
+// Two copies of the same artwork are rendered below (desktop / mobile),
+// both full-bleed across the whole section — the bold, full-size look.
+// `xMidYMid` centers on desktop; `xMinYMid` keeps the medallion cluster in
+// frame on a narrow mobile viewport instead of centering on empty space.
 interface Props {
   variant?: 'full' | 'strip';
   class?: string;
@@ -33,7 +23,7 @@ const { variant = 'full', class: className = '' } = Astro.props;
 const height = variant === 'full' ? 500 : 260;
 const VARIANTS = [
   { key: 'desktop', wrapperClass: 'hidden md:block absolute inset-0 h-full w-full', align: 'xMidYMid' },
-  { key: 'mobile', wrapperClass: 'md:hidden absolute inset-x-0 top-0 w-full h-28', align: 'xMinYMid' },
+  { key: 'mobile', wrapperClass: 'md:hidden absolute inset-0 h-full w-full', align: 'xMinYMid' },
 ];
 ---
 
