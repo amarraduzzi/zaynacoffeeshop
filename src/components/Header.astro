@@ -3,11 +3,37 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { identity, nav } from '../config/site.config';
 
 const currentPath = Astro.url.pathname;
-const locale = Astro.currentLocale ?? 'fr';
+const locale = (Astro.currentLocale ?? 'fr') as 'fr' | 'en' | 'ar';
+
+// Only the homepage exists in all three locales right now (see /en and /ar
+// index.astro) — every other page only exists in French. So every nav item
+// except Home always points at its plain French path, on every locale,
+// to avoid linking to a page that doesn't exist yet (e.g. /en/carte).
+// Labels still localize, so the header at least *reads* correctly even
+// where it can't fully navigate in-language yet.
+const NAV_LABELS: Record<string, Record<'fr' | 'en' | 'ar', string>> = {
+  '/': { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' },
+  '/carte': { fr: 'Carte', en: 'In-store menu', ar: 'القائمة' },
+  '/menu': { fr: 'Commander', en: 'Order online', ar: 'اطلب الآن' },
+  '/a-propos': { fr: 'À propos', en: 'About', ar: 'من نحن' },
+  '/avis': { fr: 'Avis', en: 'Reviews', ar: 'التقييمات' },
+  '/faq': { fr: 'FAQ', en: 'FAQ', ar: 'الأسئلة الشائعة' },
+  '/contact': { fr: 'Contact', en: 'Contact', ar: 'اتصل بنا' },
+};
+
+const menuAriaLabel = { fr: 'Ouvrir le menu', en: 'Open menu', ar: 'فتح القائمة' }[locale];
+const orderLabel = NAV_LABELS['/menu'][locale];
+
+function labelFor(href: string) {
+  return NAV_LABELS[href]?.[locale] ?? href;
+}
+
+function hrefFor(href: string) {
+  return href === '/' ? getRelativeLocaleUrl(locale, '') : href;
+}
 
 function isActive(href: string) {
-  const localizedHref = getRelativeLocaleUrl(locale, href === '/' ? '' : href);
-  return currentPath === localizedHref || currentPath === localizedHref + '/';
+  return currentPath === hrefFor(href) || currentPath === hrefFor(href) + '/';
 }
 ---
 
@@ -27,13 +53,13 @@ function isActive(href: string) {
       <nav class="hidden md:flex items-center gap-8">
         {nav.map((item) => (
           <a
-            href={getRelativeLocaleUrl(locale, item.href === '/' ? '' : item.href)}
+            href={hrefFor(item.href)}
             class:list={[
               'text-sm font-medium transition-colors hover:text-primary',
               isActive(item.href) ? 'text-primary' : 'text-text-primary',
             ]}
           >
-            {item.label}
+            {labelFor(item.href)}
           </a>
         ))}
       </nav>
@@ -47,16 +73,16 @@ function isActive(href: string) {
           <a href={getRelativeLocaleUrl('ar', '')} class:list={[locale === 'ar' && 'font-bold text-primary']}>AR</a>
         </div>
         <a
-          href={getRelativeLocaleUrl(locale, 'menu')}
+          href="/menu"
           class="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors"
         >
-          Commander
+          {orderLabel}
         </a>
       </div>
 
       <button
         id="menu-toggle"
-        aria-label="Ouvrir le menu"
+        aria-label={menuAriaLabel}
         aria-expanded="false"
         class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-text-primary"
       >
@@ -71,10 +97,10 @@ function isActive(href: string) {
     <div class="px-4 py-3 flex flex-col gap-1">
       {nav.map((item) => (
         <a
-          href={getRelativeLocaleUrl(locale, item.href === '/' ? '' : item.href)}
+          href={hrefFor(item.href)}
           class="rounded-md px-3 py-2 text-sm font-medium text-text-primary hover:bg-surface-muted"
         >
-          {item.label}
+          {labelFor(item.href)}
         </a>
       ))}
       <div class="flex items-center gap-3 px-3 pt-2 text-xs text-text-muted">

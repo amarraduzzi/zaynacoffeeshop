@@ -11,8 +11,14 @@
 // and delivery pricing are often set independently, not a transcription
 // error.
 
-export type CarteItem = { name: string; description: string; price: string };
-export type CarteSection = { name: string; intro?: string; items: CarteItem[] };
+export type CarteItem = { name: string; description: string; price: string; image?: string };
+export type CarteSection = { name: string; intro?: string; bannerImage?: string; items: CarteItem[] };
+
+// Photo reuse note: most of these images were shot for the Glovo delivery
+// menu (src/content/menu-highlights.ts / src/cart/order-menu.ts) — same
+// dish, so reusing them here is legitimate, not a placeholder trick. Items
+// with no matching Glovo photo (brunchs, tajines, cafés, thés, most cold
+// drinks) still have none — this carte was never photographed on its own.
 
 export const carteMenu: CarteSection[] = [
   {
@@ -24,6 +30,7 @@ export const carteMenu: CarteSection[] = [
         description:
           'Pancakes du chef, jus d’orange ou carottes. Accompagnés de garniture au choix : beurre de cacahuète, beurre salé ou fruits frais.',
         price: '45 DH',
+        image: '/images/menu/miricani.jpg',
       },
       {
         name: 'Mghribi',
@@ -36,6 +43,7 @@ export const carteMenu: CarteSection[] = [
         description:
           '2 véritables scones anglais maison servis avec du beurre salé, confiture artisanale & miel.',
         price: '60 DH',
+        image: '/images/menu/nglizi.jpg',
       },
     ],
   },
@@ -74,16 +82,19 @@ export const carteMenu: CarteSection[] = [
         name: 'Énergie Bowl',
         description: 'Un lit de yaourt nature, granola maison, fruits de saison & pâte de cacahuète maison.',
         price: '63 DH',
+        image: '/images/menu/zayna-bowl.jpg',
       },
       {
         name: 'Golden Bowl',
         description: 'Porridge aux flocons d’avoine, fruit de saison, dattes & graines variées.',
         price: '59 DH',
+        image: '/images/menu/zayna-bowl.jpg',
       },
       {
         name: 'Choco Chai Bowl',
         description: 'Un lit de yaourt nature, banane caramélisée, granola maison, pépites de chocolat, beurre de cacahuète.',
         price: '59 DH',
+        image: '/images/menu/zayna-bowl.jpg',
       },
     ],
   },
@@ -94,11 +105,13 @@ export const carteMenu: CarteSection[] = [
         name: 'Salade César',
         description: 'Laitue, tomates, croûtons, anchois, parmesan & sauce du chef.',
         price: '45 DH',
+        image: '/images/menu/salade-cesar.jpg',
       },
       {
         name: 'Salade Quinoa',
         description: 'Quinoa, poulet aux herbes, carottes, roquette, poivrons, tomates & sauce du chef.',
         price: '45 DH',
+        image: '/images/menu/salade-quinoa.jpg',
       },
     ],
   },
@@ -109,21 +122,25 @@ export const carteMenu: CarteSection[] = [
         name: 'Fondant Dghmira',
         description: 'Poulet, oignons caramélisés, patate douce au four & sauce du chef.',
         price: '70 DH',
+        image: '/images/menu/fondant-dghmira.jpg',
       },
       {
         name: 'Bagel Poulet au Pesto',
         description: 'Poulet rôti, sauce pesto, roquette, salade, patate douce au four.',
         price: '70 DH',
+        image: '/images/menu/bagel-poulet-pesto.jpg',
       },
       {
         name: 'Bagel Veggie Délice',
         description: 'Légumes grillés, sauce pesto, roquette & mozzarella.',
         price: '65 DH',
+        image: '/images/menu/bagel-veggie-delice.jpg',
       },
       {
         name: 'Bagel Kofta',
         description: 'Kofta grillée, sauce du chef, laitue, tomates confites, pickles rouges & patate douce au four.',
         price: '80 DH',
+        image: '/images/menu/bagel-kofta.jpg',
       },
     ],
   },
@@ -142,10 +159,30 @@ export const carteMenu: CarteSection[] = [
   {
     name: 'Desserts',
     items: [
-      { name: 'Carrot Cake au Fromage Blanc & Noix', description: '', price: '30 DH' },
-      { name: 'Brownies au Amlou', description: '', price: '30 DH' },
-      { name: 'Cake au Citron', description: '', price: '30 DH' },
-      { name: 'Cinnamon Rolls', description: '', price: '30 DH' },
+      {
+        name: 'Carrot Cake au Fromage Blanc & Noix',
+        description: '',
+        price: '30 DH',
+        image: '/images/menu/carrot-cake.jpg',
+      },
+      {
+        name: 'Brownies au Amlou',
+        description: '',
+        price: '30 DH',
+        image: '/images/menu/brownies-amlou.jpg',
+      },
+      {
+        name: 'Cake au Citron',
+        description: '',
+        price: '30 DH',
+        image: '/images/menu/cake-au-citron.jpg',
+      },
+      {
+        name: 'Cinnamon Rolls',
+        description: '',
+        price: '30 DH',
+        image: '/images/menu/cinnamon-rolls.jpg',
+      },
       { name: 'Tarte aux Fruits de Saison', description: '', price: '30 DH' },
       { name: 'Cookies', description: '', price: '30 DH' },
       { name: 'Scones', description: '', price: '30 DH' },
@@ -153,6 +190,7 @@ export const carteMenu: CarteSection[] = [
   },
   {
     name: 'Cafés',
+    bannerImage: '/images/carte/mug-shaghaf.jpg',
     items: [
       { name: 'Espresso', description: '', price: '17 DH' },
       { name: 'Double Espresso', description: '', price: '17 DH' },
@@ -176,12 +214,23 @@ export const carteMenu: CarteSection[] = [
   },
   {
     name: 'Boissons froides',
+    bannerImage: '/images/carte/mug-hob.jpg',
     items: [
-      { name: 'Jus d’Oranges', description: '', price: '25 DH' },
+      { name: 'Jus d’Oranges', description: '', price: '25 DH', image: '/images/menu/jus-orange.jpg' },
       { name: 'Jus de Pommes & Cannelle', description: '', price: '25 DH' },
       { name: 'Thé Green Glow', description: 'Concombre, pomme, épinards, citron', price: '30 DH' },
-      { name: 'Bissap aux Fruits Tropicaux', description: '', price: '30 DH' },
-      { name: 'Jus de Citron & Menthe', description: '', price: '25 DH' },
+      {
+        name: 'Bissap aux Fruits Tropicaux',
+        description: '',
+        price: '30 DH',
+        image: '/images/menu/bissap.jpg',
+      },
+      {
+        name: 'Jus de Citron & Menthe',
+        description: '',
+        price: '25 DH',
+        image: '/images/menu/jus-citron-menthe.jpg',
+      },
       { name: 'Jus de Carottes', description: '', price: '30 DH' },
       { name: 'Jus à la Betterave & Orange', description: '', price: '25 DH' },
       { name: 'Eau Minérale 33 CL', description: '', price: '15 DH' },
