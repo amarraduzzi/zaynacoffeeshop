@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zayna-coffeeshop.ma/sitemap.xml
