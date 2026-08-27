@@ -68,8 +68,11 @@ import { testimonials } from '../content/testimonials';
     <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {menuHighlights.flatMap((c) => c.items).slice(0, 3).map((item) => (
         <div class="rounded-xl border border-border bg-surface p-5">
-          <!-- PHOTO: dish/drink photo goes above each card -->
-          <div class="photo-placeholder aspect-video rounded-lg mb-4">Photo à venir</div>
+          {item.image ? (
+            <img src={item.image} alt={item.name} class="aspect-video w-full rounded-lg object-cover mb-4" />
+          ) : (
+            <div class="photo-placeholder aspect-video rounded-lg mb-4">Photo à venir</div>
+          )}
           <div class="flex items-start justify-between gap-2">
             <h3 class="font-display font-semibold">{item.name}</h3>
             <span class="text-sm font-semibold text-primary shrink-0">{item.price}</span>
