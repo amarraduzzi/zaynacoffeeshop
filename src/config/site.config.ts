@@ -49,8 +49,8 @@ export const contact = {
 };
 
 export const hours = {
-  // Confirmed via the printed in-store menu ("Opening hours: 8am - 9pm").
-  displayText: 'Tous les jours · 08:00 – 21:00',
+  // Confirmed via the printed in-store menu ("Opening hours: 9am - 9pm").
+  displayText: 'Tous les jours · 09:00 – 21:00',
   note: 'Les horaires peuvent varier lors des fêtes religieuses (ex. Mawlid an-Nabi).',
 };
 

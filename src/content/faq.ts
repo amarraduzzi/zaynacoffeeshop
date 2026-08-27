@@ -15,7 +15,7 @@ export const faq: FaqItem[] = [
   {
     question: 'Quels sont les horaires d’ouverture ?',
     answer:
-      'Zayna est ouvert tous les jours de 08:00 à 21:00. Les horaires peuvent varier lors des fêtes religieuses (ex. Mawlid an-Nabi) — nous vous invitons à confirmer par téléphone avant de vous déplacer un jour férié.',
+      'Zayna est ouvert tous les jours de 09:00 à 21:00. Les horaires peuvent varier lors des fêtes religieuses (ex. Mawlid an-Nabi) — nous vous invitons à confirmer par téléphone avant de vous déplacer un jour férié.',
   },
   {
     question: 'Proposez-vous des options véganes ?',
@@ -51,7 +51,7 @@ export const faqEn: FaqItem[] = [
   {
     question: 'What are the opening hours?',
     answer:
-      'Zayna is open every day from 08:00 to 21:00. Hours may vary on religious holidays (e.g. Mawlid an-Nabi) — we recommend calling ahead before visiting on a public holiday.',
+      'Zayna is open every day from 09:00 to 21:00. Hours may vary on religious holidays (e.g. Mawlid an-Nabi) — we recommend calling ahead before visiting on a public holiday.',
   },
   {
     question: 'Do you offer vegan options?',
@@ -84,7 +84,7 @@ export const faqAr: FaqItem[] = [
   {
     question: 'ما هي ساعات العمل؟',
     answer:
-      'يفتح Zayna أبوابه يوميًا من الساعة 08:00 إلى 21:00. قد تتغير المواعيد في المناسبات الدينية (مثل المولد النبوي) — يُستحسن الاتصال هاتفيًا قبل الزيارة في يوم عطلة.',
+      'يفتح Zayna أبوابه يوميًا من الساعة 09:00 إلى 21:00. قد تتغير المواعيد في المناسبات الدينية (مثل المولد النبوي) — يُستحسن الاتصال هاتفيًا قبل الزيارة في يوم عطلة.',
   },
   {
     question: 'هل تقدمون خيارات نباتية؟',
