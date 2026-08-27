@@ -1,16 +1,18 @@
 ---
-// English homepage stub. Only the homepage is translated for now — the
-// other five pages (menu, about, reviews, faq, contact) still need EN
-// versions once the FR content is finalized. Copy the structure of
-// src/pages/index.astro and translate the strings.
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { identity, contact, hours, ratings, priceRange, amenities } from '../../config/site.config';
+import ZelligeDivider from '../../components/ZelligeDivider.astro';
+import MoroccanHeroBanner from '../../components/MoroccanHeroBanner.astro';
+import { identity, contact, hours, ratings, priceRange, amenitiesEn as amenities } from '../../config/site.config';
+import { menuHighlightsEn as menuHighlights } from '../../content/menu-highlights';
+import { testimonialsEn as testimonials } from '../../content/testimonials';
 ---
 
 <BaseLayout title="Home" path="/en">
+  <!-- HERO -->
   <section class="relative overflow-hidden bg-surface-muted">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 grid gap-12 lg:grid-cols-2 lg:items-center">
-      <div>
+    <MoroccanHeroBanner variant="full" />
+    <div class="reveal relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div class="rounded-3xl bg-surface/85 p-6 sm:p-8 backdrop-blur-sm shadow-sm">
         <p class="inline-flex items-center gap-2 rounded-full bg-accent/60 px-4 py-1 text-xs font-semibold uppercase tracking-wide text-primary-dark">
           ★ {ratings.score}/5 · {ratings.count} {ratings.source} reviews
         </p>
@@ -22,11 +24,11 @@ import { identity, contact, hours, ratings, priceRange, amenities } from '../../
           room, and vegan options.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
-          <a href="/contact" class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors">
+          <a href="/en/contact" class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors">
             Find us
           </a>
-          <a href="/" class="rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-surface transition-colors">
-            Voir la version française
+          <a href="/en/menu" class="rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-surface transition-colors">
+            View the menu
           </a>
         </div>
         <ul class="mt-8 flex flex-wrap gap-3 text-xs text-text-muted">
@@ -35,6 +37,7 @@ import { identity, contact, hours, ratings, priceRange, amenities } from '../../
           ))}
         </ul>
       </div>
+
       <img
         src="/images/hero/hero-products.jpg"
         alt="Illustration of Zayna Coffee Shop's signature products"
@@ -45,8 +48,9 @@ import { identity, contact, hours, ratings, priceRange, amenities } from '../../
     </div>
   </section>
 
+  <!-- QUICK INFO STRIP -->
   <section class="border-y border-border bg-surface">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 grid gap-6 sm:grid-cols-3 text-sm">
+    <div class="reveal mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 grid gap-6 sm:grid-cols-3 text-sm">
       <div>
         <p class="font-semibold text-primary">Address</p>
         <p class="text-text-muted">{contact.address.full}</p>
@@ -62,11 +66,69 @@ import { identity, contact, hours, ratings, priceRange, amenities } from '../../
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20 text-center">
-    <p class="text-text-muted text-sm italic">
-      Note: only this homepage has been translated so far. The rest of the English site (menu,
-      about, reviews, FAQ, contact) still needs to be built out — links above go back to the
-      French pages until then.
-    </p>
+  <ZelligeDivider class="bg-surface" />
+
+  <!-- MENU TEASER -->
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20">
+    <div class="reveal flex items-end justify-between gap-4 flex-wrap">
+      <h2 class="font-display text-3xl font-bold">A few favorites</h2>
+      <a href="/en/menu" class="text-sm font-semibold text-primary hover:underline">See the full menu →</a>
+    </div>
+    <div class="reveal mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {menuHighlights.flatMap((c) => c.items).slice(0, 3).map((item) => (
+        <div class="card-lift rounded-xl border border-border bg-surface p-5">
+          {item.image ? (
+            <img src={item.image} alt={item.name} class="aspect-video w-full rounded-lg object-cover mb-4" />
+          ) : (
+            <div class="photo-placeholder aspect-video rounded-lg mb-4">Photo coming soon</div>
+          )}
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-display font-semibold">{item.name}</h3>
+            <span class="text-sm font-semibold text-primary shrink-0">{item.price}</span>
+          </div>
+          <p class="mt-1 text-sm text-text-muted">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS TEASER -->
+  <section class="bg-surface-muted">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-20">
+      <div class="reveal">
+        <h2 class="font-display text-3xl font-bold">What our customers say</h2>
+        <p class="mt-2 text-sm text-text-muted">
+          Average rating {ratings.score}/5 from {ratings.count} {ratings.source} reviews.
+        </p>
+      </div>
+      <div class="reveal mt-8 grid gap-6 sm:grid-cols-3">
+        {testimonials.map((t) => (
+          <blockquote class="card-lift rounded-xl bg-surface border border-border p-6 text-sm">
+            <p class="text-text-primary">"{t.text}"</p>
+            <footer class="mt-4 text-xs text-text-muted">— {t.author}</footer>
+          </blockquote>
+        ))}
+      </div>
+      <a href="/en/avis" class="mt-8 inline-block text-sm font-semibold text-primary hover:underline">Read all reviews →</a>
+    </div>
+  </section>
+
+  <ZelligeDivider class="bg-background" />
+
+  <!-- CTA -->
+  <section class="relative overflow-hidden py-20 text-center">
+    <MoroccanHeroBanner variant="strip" />
+    <div class="reveal relative mx-auto max-w-2xl rounded-3xl bg-surface/85 px-6 py-10 backdrop-blur-sm shadow-sm">
+      <h2 class="font-display text-3xl font-bold">Come visit us</h2>
+      <p class="mt-3 text-text-muted">{contact.address.full}</p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a href={contact.phone.href} class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors">
+          Call · {contact.phone.display}
+        </a>
+        <a href={contact.mapLinkHref} class="rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-primary hover:text-surface transition-colors">
+          Get directions
+        </a>
+      </div>
+    </div>
   </section>
 </BaseLayout>

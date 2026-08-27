@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoroccanHeroBanner from '../../components/MoroccanHeroBanner.astro';
+import OrderApp from '../../cart/OrderApp';
+---
+
+<BaseLayout title="اطلب الآن" path="/ar/menu">
+  <section class="relative h-56 overflow-hidden">
+    <MoroccanHeroBanner variant="strip" />
+    <div class="relative flex h-full items-center justify-center px-4 text-center">
+      <h1 class="rounded-2xl bg-surface/85 px-8 py-4 font-display text-4xl font-bold backdrop-blur-sm shadow-sm">
+        اطلب عبر الإنترنت
+      </h1>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+    <p class="text-text-muted">
+      أضف العناصر إلى سلتك، ثم أكّد طلبك — سيُرسَل مباشرة عبر واتساب. هل أنت في المقهى؟ راجع
+      <a href="/ar/carte" class="text-primary hover:underline">قائمة المقهى</a>.
+    </p>
+
+    <OrderApp client:load locale="ar" />
+  </section>
+</BaseLayout>

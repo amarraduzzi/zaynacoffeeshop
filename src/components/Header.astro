@@ -1,25 +1,14 @@
 ---
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { identity, nav } from '../config/site.config';
+import { identity, nav, navLabels as NAV_LABELS } from '../config/site.config';
 
 const currentPath = Astro.url.pathname;
 const locale = (Astro.currentLocale ?? 'fr') as 'fr' | 'en' | 'ar';
 
-// Only the homepage exists in all three locales right now (see /en and /ar
-// index.astro) — every other page only exists in French. So every nav item
-// except Home always points at its plain French path, on every locale,
-// to avoid linking to a page that doesn't exist yet (e.g. /en/carte).
-// Labels still localize, so the header at least *reads* correctly even
-// where it can't fully navigate in-language yet.
-const NAV_LABELS: Record<string, Record<'fr' | 'en' | 'ar', string>> = {
-  '/': { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' },
-  '/carte': { fr: 'Carte', en: 'In-store menu', ar: 'القائمة' },
-  '/menu': { fr: 'Commander', en: 'Order online', ar: 'اطلب الآن' },
-  '/a-propos': { fr: 'À propos', en: 'About', ar: 'من نحن' },
-  '/avis': { fr: 'Avis', en: 'Reviews', ar: 'التقييمات' },
-  '/faq': { fr: 'FAQ', en: 'FAQ', ar: 'الأسئلة الشائعة' },
-  '/contact': { fr: 'Contact', en: 'Contact', ar: 'اتصل بنا' },
-};
+// Every page now exists in all three locales (fr unprefixed, /en/*, /ar/*)
+// — see src/pages/en/*.astro and src/pages/ar/*.astro. So nav links and the
+// language switcher both route to the real translated page, not just the
+// homepage.
 
 const menuAriaLabel = { fr: 'Ouvrir le menu', en: 'Open menu', ar: 'فتح القائمة' }[locale];
 const langMenuAriaLabel = { fr: 'Choisir la langue', en: 'Choose language', ar: 'اختر اللغة' }[locale];
@@ -31,11 +20,26 @@ function labelFor(href: string) {
 }
 
 function hrefFor(href: string) {
-  return href === '/' ? getRelativeLocaleUrl(locale, '') : href;
+  const slug = href === '/' ? '' : href.replace(/^\//, '');
+  return getRelativeLocaleUrl(locale, slug);
 }
 
 function isActive(href: string) {
   return currentPath === hrefFor(href) || currentPath === hrefFor(href) + '/';
+}
+
+// The current route with any locale prefix stripped, e.g. "/en/carte" -> "/carte",
+// "/ar" -> "/" — used so the language switcher lands on the SAME page in the
+// new language instead of resetting to the homepage.
+const routeWithoutLocale = (() => {
+  let p = currentPath.replace(/^\/(en|ar)(?=\/|$)/, '');
+  if (p === '') p = '/';
+  return p;
+})();
+
+function localeSwitchHref(targetLocale: 'fr' | 'en' | 'ar') {
+  const slug = routeWithoutLocale === '/' ? '' : routeWithoutLocale.replace(/^\//, '');
+  return getRelativeLocaleUrl(targetLocale, slug);
 }
 ---
 
@@ -68,14 +72,14 @@ function isActive(href: string) {
 
       <div class="hidden md:flex items-center gap-4">
         <div class="flex items-center gap-1 text-xs text-text-muted">
-          <a href={getRelativeLocaleUrl('fr', '')} class:list={[locale === 'fr' && 'font-bold text-primary']}>FR</a>
+          <a href={localeSwitchHref('fr')} class:list={[locale === 'fr' && 'font-bold text-primary']}>FR</a>
           <span>·</span>
-          <a href={getRelativeLocaleUrl('en', '')} class:list={[locale === 'en' && 'font-bold text-primary']}>EN</a>
+          <a href={localeSwitchHref('en')} class:list={[locale === 'en' && 'font-bold text-primary']}>EN</a>
           <span>·</span>
-          <a href={getRelativeLocaleUrl('ar', '')} class:list={[locale === 'ar' && 'font-bold text-primary']}>AR</a>
+          <a href={localeSwitchHref('ar')} class:list={[locale === 'ar' && 'font-bold text-primary']}>AR</a>
         </div>
         <a
-          href="/menu"
+          href={hrefFor('/menu')}
           class="rounded-full bg-primary px-5 py-2 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors"
         >
           {orderLabel}
@@ -103,7 +107,7 @@ function isActive(href: string) {
         >
           {LOCALES.map((l) => (
             <a
-              href={getRelativeLocaleUrl(l, '')}
+              href={localeSwitchHref(l)}
               class:list={[
                 'block px-4 py-2 text-sm hover:bg-surface-muted',
                 l === locale ? 'font-bold text-primary' : 'text-text-primary',

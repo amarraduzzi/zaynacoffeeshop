@@ -34,3 +34,45 @@ export const testimonials: Testimonial[] = [
     placeholder: true,
   },
 ];
+
+export const testimonialsEn: Testimonial[] = [
+  {
+    author: 'Google customer (example)',
+    rating: 5,
+    text: 'Warm atmosphere and a lovely terrace — exactly the kind of café where you take your time. To be replaced with a real review.',
+    placeholder: true,
+  },
+  {
+    author: 'Google customer (example)',
+    rating: 5,
+    text: 'Great find in Rabat, attentive service and good vegan options. To be replaced with a real review.',
+    placeholder: true,
+  },
+  {
+    author: 'Google customer (example)',
+    rating: 5,
+    text: 'The private room is perfect for a meeting or a small get-together. To be replaced with a real review.',
+    placeholder: true,
+  },
+];
+
+export const testimonialsAr: Testimonial[] = [
+  {
+    author: 'عميل من Google (مثال)',
+    rating: 5,
+    text: 'أجواء دافئة وتراس رائع — بالضبط نوع المقهى الذي تأخذ فيه وقتك. سيُستبدل برأي حقيقي.',
+    placeholder: true,
+  },
+  {
+    author: 'عميل من Google (مثال)',
+    rating: 5,
+    text: 'اكتشاف رائع في الرباط، خدمة مهتمة وخيارات نباتية جيدة. سيُستبدل برأي حقيقي.',
+    placeholder: true,
+  },
+  {
+    author: 'عميل من Google (مثال)',
+    rating: 5,
+    text: 'القاعة الخاصة مثالية لموعد عمل أو لقاء صغير. سيُستبدل برأي حقيقي.',
+    placeholder: true,
+  },
+];

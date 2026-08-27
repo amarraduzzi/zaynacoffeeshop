@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import MoroccanHeroBanner from '../components/MoroccanHeroBanner.astro';
-import { contact, hours } from '../config/site.config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoroccanHeroBanner from '../../components/MoroccanHeroBanner.astro';
+import { contact, hours } from '../../config/site.config';
 ---
 
-<BaseLayout title="Contact" path="/contact">
+<BaseLayout title="Contact" path="/en/contact">
   <section class="relative h-56 overflow-hidden">
     <MoroccanHeroBanner variant="strip" />
     <div class="relative flex h-full items-center justify-center px-4 text-center">
@@ -18,19 +18,21 @@ import { contact, hours } from '../config/site.config';
     <div>
       <dl class="mt-8 space-y-6 text-sm">
         <div>
-          <dt class="font-semibold text-primary">Adresse</dt>
+          <dt class="font-semibold text-primary">Address</dt>
           <dd class="text-text-muted mt-1">{contact.address.full}</dd>
         </div>
         <div>
-          <dt class="font-semibold text-primary">Téléphone</dt>
+          <dt class="font-semibold text-primary">Phone</dt>
           <dd class="text-text-muted mt-1">
             <a href={contact.phone.href} class="hover:underline">{contact.phone.display}</a>
           </dd>
         </div>
         <div>
-          <dt class="font-semibold text-primary">Horaires</dt>
+          <dt class="font-semibold text-primary">Hours</dt>
           <dd class="text-text-muted mt-1">{hours.displayText}</dd>
-          <dd class="text-text-muted text-xs mt-1">{hours.note}</dd>
+          <dd class="text-text-muted text-xs mt-1">
+            Hours may vary on religious holidays (e.g. Mawlid an-Nabi).
+          </dd>
         </div>
       </dl>
 
@@ -40,22 +42,22 @@ import { contact, hours } from '../config/site.config';
           class="h-full w-full"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Carte — Zayna Coffee Shop"
+          title="Map — Zayna Coffee Shop"
         ></iframe>
       </div>
     </div>
 
     <div>
-      <h2 class="font-display text-2xl font-semibold">Envoyez-nous un message</h2>
+      <h2 class="font-display text-2xl font-semibold">Send us a message</h2>
       <p class="mt-2 text-sm text-text-muted">
         <!-- This form has no backend yet. Point the action at a form service
              (Formspree, Web3Forms, Netlify Forms, ...) or your own endpoint
              before launch. -->
-        Formulaire à connecter à un service d'envoi (ex. Formspree) avant la mise en ligne.
+        Form to be connected to a submission service (e.g. Formspree) before launch.
       </p>
       <form class="mt-6 space-y-4" action="#" method="POST">
         <div>
-          <label for="name" class="block text-sm font-medium">Nom</label>
+          <label for="name" class="block text-sm font-medium">Name</label>
           <input
             id="name"
             name="name"
@@ -88,7 +90,7 @@ import { contact, hours } from '../config/site.config';
           type="submit"
           class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors"
         >
-          Envoyer
+          Send
         </button>
       </form>
     </div>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ZelligeDivider from '../../components/ZelligeDivider.astro';
+import MoroccanHeroBanner from '../../components/MoroccanHeroBanner.astro';
+import { identity, amenitiesAr as amenities, contact } from '../../config/site.config';
+---
+
+<!--
+  DEMO COPY NOTICE — same imagined-owner-voice story as the French page,
+  translated. Not the owner's real words yet. See src/pages/a-propos.astro.
+-->
+<BaseLayout title="من نحن" path="/ar/a-propos">
+  <section class="relative h-56 overflow-hidden">
+    <MoroccanHeroBanner variant="strip" />
+    <div class="relative flex h-full items-center justify-center px-4 text-center">
+      <h1 class="reveal rounded-2xl bg-surface/85 px-8 py-4 font-display text-4xl font-bold backdrop-blur-sm shadow-sm">
+        من نحن — {identity.shortName}
+      </h1>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mt-10 grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div class="reveal space-y-4 text-text-muted">
+        <p>
+          افتتحتُ {identity.name} لأنني كنت أبحث، في {contact.address.city}، عن المكان الذي كنت أتمنى أن
+          أجلس فيه بنفسي — مقهى يُحسن صنع الأشياء دون أن يأخذ نفسه على محمل الجد أكثر من اللازم.
+        </p>
+        <p>
+          في القائمة، يحمل كل فطور اسم مكان آخر — ميريكاني على الطريقة الأمريكية، نجليزي بروح إنجليزية
+          خالصة مع سكونز منزلي، ومغربي أصيل بالكامل — لأن هذه هي فكرة المقهى: وصفات من أماكن أخرى،
+          مُحضّرة بقلب مغربي.
+        </p>
+        <p>
+          لون التراكوتا على الجدران، ونقوش الزليج التي تظهر حتى في شعارنا، ليست ديكورًا مضافًا لاحقًا:
+          إنها الإرث الذي أردنا تكريمه، لكن بلغة بسيطة ودافئة وعصرية. سواء أتيتم بمفردكم مع كتاب في
+          التراس، أو رفقة أصدقاء في القاعة الخاصة، أو كنتم نباتيين، أردتُ أن يكون هناك مكان لكم هنا.
+        </p>
+      </div>
+      <!-- PHOTO: team / interior photo -->
+      <div class="photo-placeholder aspect-square rounded-2xl">الصورة قريبًا — الفريق أو الديكور الداخلي</div>
+    </div>
+
+    <ZelligeDivider class="mt-14 bg-background" />
+
+    <div class="mt-2">
+      <h2 class="reveal font-display text-2xl font-semibold">ما نقدمه</h2>
+      <ul class="reveal mt-6 grid gap-4 sm:grid-cols-3">
+        {amenities.map((a) => (
+          <li class="card-lift rounded-xl border border-border bg-surface-muted p-5 text-sm font-medium">{a}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

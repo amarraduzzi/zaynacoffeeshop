@@ -11,6 +11,8 @@
 // tag, shown as a badge on their card.
 import type { MenuCategory, MenuItem } from './types';
 
+export type Locale = 'fr' | 'en' | 'ar';
+
 export const categories: MenuCategory[] = [
   { id: 'bagels', label: 'Bagels' },
   { id: 'petits-dejeuners', label: 'Petits-déjeuners' },
@@ -19,6 +21,36 @@ export const categories: MenuCategory[] = [
   { id: 'desserts', label: 'Desserts' },
   { id: 'boissons', label: 'Boissons' },
 ];
+
+export const categoriesEn: MenuCategory[] = [
+  { id: 'bagels', label: 'Bagels' },
+  { id: 'petits-dejeuners', label: 'Breakfasts' },
+  { id: 'salades', label: 'Salads' },
+  { id: 'bowls', label: 'Zayna Bowls' },
+  { id: 'desserts', label: 'Desserts' },
+  { id: 'boissons', label: 'Drinks' },
+];
+
+export const categoriesAr: MenuCategory[] = [
+  { id: 'bagels', label: 'بيغلات' },
+  { id: 'petits-dejeuners', label: 'الفطور' },
+  { id: 'salades', label: 'السلطات' },
+  { id: 'bowls', label: 'أطباق زاينة' },
+  { id: 'desserts', label: 'الحلويات' },
+  { id: 'boissons', label: 'المشروبات' },
+];
+
+export function getCategories(locale: Locale): MenuCategory[] {
+  if (locale === 'en') return categoriesEn;
+  if (locale === 'ar') return categoriesAr;
+  return categories;
+}
+
+export function getMenuItems(locale: Locale): MenuItem[] {
+  if (locale === 'en') return menuItemsEn;
+  if (locale === 'ar') return menuItemsAr;
+  return menuItems;
+}
 
 export const menuItems: MenuItem[] = [
   {
@@ -170,4 +202,46 @@ export const menuItems: MenuItem[] = [
     vegan: true,
     image: '/images/menu/jus-citron-menthe.jpg',
   },
+];
+
+export const menuItemsEn: MenuItem[] = [
+  { id: 'bagel-poulet-pesto', categoryId: 'bagels', name: 'Chicken Pesto Bagel', description: 'Roasted chicken, pesto, poached egg, arugula', priceMAD: 75, image: '/images/menu/bagel-poulet-pesto.jpg', tags: ['Popular'] },
+  { id: 'bagel-kofta', categoryId: 'bagels', name: 'Kofta Bagel', description: 'Grilled kofta patty, salad, sesame bread', priceMAD: 83, image: '/images/menu/bagel-kofta.jpg' },
+  { id: 'fondant-dghmira', categoryId: 'bagels', name: 'Fondant Dghmira', description: 'Shredded dghmira-style meat, sesame bread', priceMAD: 75, image: '/images/menu/fondant-dghmira.jpg' },
+  { id: 'bagel-veggie-delice', categoryId: 'bagels', name: 'Veggie Delight Bagel', description: 'Poached egg, fresh cheese, arugula, red fruit compote', priceMAD: 68, image: '/images/menu/bagel-veggie-delice.jpg' },
+  { id: 'nglizi', categoryId: 'petits-dejeuners', name: 'Nglizi', description: 'Scones, clotted cream, jam, tea', priceMAD: 60, image: '/images/menu/nglizi.jpg' },
+  { id: 'miricani', categoryId: 'petits-dejeuners', name: 'Miricani', description: 'Pancakes, seasonal fruit, dried fruit', priceMAD: 50, image: '/images/menu/miricani.jpg' },
+  { id: 'salade-cesar', categoryId: 'salades', name: 'Caesar Salad', description: 'Romaine, chicken, parmesan, croutons', priceMAD: 55, image: '/images/menu/salade-cesar.jpg' },
+  { id: 'salade-quinoa', categoryId: 'salades', name: 'Quinoa Salad', description: 'Quinoa, chicken, arugula, carrot, peppers', priceMAD: 55, image: '/images/menu/salade-quinoa.jpg' },
+  { id: 'energie-bowl', categoryId: 'bowls', name: 'Energie Bowl', description: 'Banana, plum, homemade granola, nut butter', priceMAD: 65, image: '/images/menu/zayna-bowl.jpg', tags: ['Popular'] },
+  { id: 'golden-bowl', categoryId: 'bowls', name: 'Golden Bowl', description: 'Banana, plum, homemade granola, nut butter', priceMAD: 59, image: '/images/menu/zayna-bowl.jpg' },
+  { id: 'carrot-cake', categoryId: 'desserts', name: 'Carrot Cake with Cream Cheese & Walnuts', description: 'Carrot cake, cream cheese frosting, walnuts', priceMAD: 30, image: '/images/menu/carrot-cake.jpg' },
+  { id: 'brownies-amlou', categoryId: 'desserts', name: 'Amlou Brownies', description: 'Brownie, amlou sauce', priceMAD: 30, image: '/images/menu/brownies-amlou.jpg' },
+  { id: 'cake-au-citron', categoryId: 'desserts', name: 'Lemon Cake', description: 'Lemon cake, lemon glaze', priceMAD: 30, image: '/images/menu/cake-au-citron.jpg' },
+  { id: 'scones', categoryId: 'desserts', name: 'Scones', description: 'Served with cream and jam', priceMAD: 30 },
+  { id: 'cinnamon-rolls', categoryId: 'desserts', name: 'Cinnamon Rolls', description: 'Icing, chopped nuts', priceMAD: 30, image: '/images/menu/cinnamon-rolls.jpg' },
+  { id: 'jus-orange', categoryId: 'boissons', name: 'Orange Juice', description: '', priceMAD: 30, vegan: true, image: '/images/menu/jus-orange.jpg' },
+  { id: 'bissap', categoryId: 'boissons', name: 'Tropical Fruit Bissap', description: 'Hibiscus infusion with tropical fruit', priceMAD: 30, vegan: true, image: '/images/menu/bissap.jpg' },
+  { id: 'jus-citron-menthe', categoryId: 'boissons', name: 'Lemon & Mint Juice', description: '', priceMAD: 25, vegan: true, image: '/images/menu/jus-citron-menthe.jpg' },
+];
+
+export const menuItemsAr: MenuItem[] = [
+  { id: 'bagel-poulet-pesto', categoryId: 'bagels', name: 'بيغل الدجاج بالبيستو', description: 'دجاج مشوي، بيستو، بيضة مسلوقة، جرجير', priceMAD: 75, image: '/images/menu/bagel-poulet-pesto.jpg', tags: ['الأكثر طلبًا'] },
+  { id: 'bagel-kofta', categoryId: 'bagels', name: 'بيغل الكفتة', description: 'قطعة كفتة مشوية، سلطة، خبز بالسمسم', priceMAD: 83, image: '/images/menu/bagel-kofta.jpg' },
+  { id: 'fondant-dghmira', categoryId: 'bagels', name: 'فوندان دغميرة', description: 'لحم مفروم على طريقة الدغميرة، خبز بالسمسم', priceMAD: 75, image: '/images/menu/fondant-dghmira.jpg' },
+  { id: 'bagel-veggie-delice', categoryId: 'bagels', name: 'بيغل فيجي ديليس', description: 'بيضة مسلوقة، جبن طازج، جرجير، كومبوت فواكه حمراء', priceMAD: 68, image: '/images/menu/bagel-veggie-delice.jpg' },
+  { id: 'nglizi', categoryId: 'petits-dejeuners', name: 'نجليزي', description: 'سكونز، كريمة، مربى، شاي', priceMAD: 60, image: '/images/menu/nglizi.jpg' },
+  { id: 'miricani', categoryId: 'petits-dejeuners', name: 'ميريكاني', description: 'فطائر، فواكه الموسم، فواكه مجففة', priceMAD: 50, image: '/images/menu/miricani.jpg' },
+  { id: 'salade-cesar', categoryId: 'salades', name: 'سلطة السيزر', description: 'خس روماني، دجاج، بارميزان، خبز محمّص', priceMAD: 55, image: '/images/menu/salade-cesar.jpg' },
+  { id: 'salade-quinoa', categoryId: 'salades', name: 'سلطة الكينوا', description: 'كينوا، دجاج، جرجير، جزر، فلفل', priceMAD: 55, image: '/images/menu/salade-quinoa.jpg' },
+  { id: 'energie-bowl', categoryId: 'bowls', name: 'طبق الطاقة', description: 'موز، برقوق، غرانولا منزلية، زبدة مكسرات', priceMAD: 65, image: '/images/menu/zayna-bowl.jpg', tags: ['الأكثر طلبًا'] },
+  { id: 'golden-bowl', categoryId: 'bowls', name: 'الطبق الذهبي', description: 'موز، برقوق، غرانولا منزلية، زبدة مكسرات', priceMAD: 59, image: '/images/menu/zayna-bowl.jpg' },
+  { id: 'carrot-cake', categoryId: 'desserts', name: 'كيك الجزر بجبنة الكريمة والجوز', description: 'كيك الجزر، طبقة جبنة الكريمة، جوز', priceMAD: 30, image: '/images/menu/carrot-cake.jpg' },
+  { id: 'brownies-amlou', categoryId: 'desserts', name: 'براوني بالأملو', description: 'براوني، صلصة الأملو', priceMAD: 30, image: '/images/menu/brownies-amlou.jpg' },
+  { id: 'cake-au-citron', categoryId: 'desserts', name: 'كيك الليمون', description: 'كيك الليمون، طبقة الليمون', priceMAD: 30, image: '/images/menu/cake-au-citron.jpg' },
+  { id: 'scones', categoryId: 'desserts', name: 'سكونز', description: 'تُقدَّم مع الكريمة والمربى', priceMAD: 30 },
+  { id: 'cinnamon-rolls', categoryId: 'desserts', name: 'سينامون رولز', description: 'طبقة سكر، مكسرات مجروشة', priceMAD: 30, image: '/images/menu/cinnamon-rolls.jpg' },
+  { id: 'jus-orange', categoryId: 'boissons', name: 'عصير برتقال', description: '', priceMAD: 30, vegan: true, image: '/images/menu/jus-orange.jpg' },
+  { id: 'bissap', categoryId: 'boissons', name: 'بيساب بالفواكه الاستوائية', description: 'منقوع الكركديه بالفواكه الاستوائية', priceMAD: 30, vegan: true, image: '/images/menu/bissap.jpg' },
+  { id: 'jus-citron-menthe', categoryId: 'boissons', name: 'عصير الليمون بالنعناع', description: '', priceMAD: 25, vegan: true, image: '/images/menu/jus-citron-menthe.jpg' },
 ];

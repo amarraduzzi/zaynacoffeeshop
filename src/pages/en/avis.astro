@@ -1,16 +1,16 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import MoroccanHeroBanner from '../components/MoroccanHeroBanner.astro';
-import { ratings } from '../config/site.config';
-import { testimonials } from '../content/testimonials';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoroccanHeroBanner from '../../components/MoroccanHeroBanner.astro';
+import { ratings } from '../../config/site.config';
+import { testimonialsEn as testimonials } from '../../content/testimonials';
 ---
 
-<BaseLayout title="Avis" path="/avis">
+<BaseLayout title="Reviews" path="/en/avis">
   <section class="relative h-56 overflow-hidden">
     <MoroccanHeroBanner variant="strip" />
     <div class="relative flex h-full items-center justify-center px-4 text-center">
       <h1 class="rounded-2xl bg-surface/85 px-8 py-4 font-display text-4xl font-bold backdrop-blur-sm shadow-sm">
-        Avis clients
+        Customer Reviews
       </h1>
     </div>
   </section>
@@ -18,11 +18,11 @@ import { testimonials } from '../content/testimonials';
   <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
     <p class="flex items-center gap-2 text-lg">
       <span class="text-primary font-semibold">★ {ratings.score}/5</span>
-      <span class="text-text-muted text-sm">({ratings.count} avis {ratings.source})</span>
+      <span class="text-text-muted text-sm">({ratings.count} {ratings.source} reviews)</span>
     </p>
     <p class="mt-2 text-sm text-text-muted italic">
-      Les avis ci-dessous sont des exemples de mise en page — à remplacer par de vrais avis Google
-      (avec l'accord des auteurs) avant la mise en ligne.
+      The reviews below are layout examples — to be replaced with real Google reviews (with the
+      authors' consent) before launch.
     </p>
 
     <div class="mt-10 space-y-6">

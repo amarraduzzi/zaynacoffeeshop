@@ -73,6 +73,9 @@ export const amenities = [
   'Options véganes',
 ];
 
+export const amenitiesEn = ['Outdoor terrace', 'Private room', 'Vegan options'];
+export const amenitiesAr = ['تراس خارجي', 'قاعة خاصة', 'خيارات نباتية'];
+
 // Instagram confirmed via the "Follow Us" handle printed on the in-store menu.
 // TODO: facebook/tiktok still need confirming.
 export const socials = {
@@ -95,3 +98,15 @@ export const nav = [
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];
+
+// Shared with Header.astro and Footer.astro so nav labels translate
+// consistently everywhere, now that every page exists in all 3 locales.
+export const navLabels: Record<string, Record<'fr' | 'en' | 'ar', string>> = {
+  '/': { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' },
+  '/carte': { fr: 'Carte', en: 'In-store menu', ar: 'القائمة' },
+  '/menu': { fr: 'Commander', en: 'Order online', ar: 'اطلب الآن' },
+  '/a-propos': { fr: 'À propos', en: 'About', ar: 'من نحن' },
+  '/avis': { fr: 'Avis', en: 'Reviews', ar: 'التقييمات' },
+  '/faq': { fr: 'FAQ', en: 'FAQ', ar: 'الأسئلة الشائعة' },
+  '/contact': { fr: 'Contact', en: 'Contact', ar: 'اتصل بنا' },
+};
