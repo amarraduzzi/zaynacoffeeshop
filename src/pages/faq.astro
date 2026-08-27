@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MoroccanOrnament from '../components/MoroccanOrnament.astro';
 import { faq } from '../content/faq';
 
 const jsonLd = {
@@ -14,7 +15,8 @@ const jsonLd = {
 ---
 
 <BaseLayout title="FAQ" path="/faq">
-  <section class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
+  <section class="relative overflow-hidden mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-16">
+    <MoroccanOrnament corner="top-right" size={140} />
     <h1 class="font-display text-4xl font-bold">Questions fréquentes</h1>
 
     <div class="mt-10 divide-y divide-border rounded-xl border border-border bg-surface">

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ZelligeDivider from '../components/ZelligeDivider.astro';
+import MoroccanOrnament from '../components/MoroccanOrnament.astro';
 import { identity, amenities, contact } from '../config/site.config';
 ---
 
@@ -11,8 +12,9 @@ import { identity, amenities, contact } from '../config/site.config';
   her actual story once she sends it — see README.
 -->
 <BaseLayout title="À propos" path="/a-propos">
-  <section class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
-    <h1 class="reveal font-display text-4xl font-bold">À propos de {identity.shortName}</h1>
+  <section class="relative overflow-hidden mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+    <MoroccanOrnament corner="top-right" size={220} />
+    <h1 class="reveal relative font-display text-4xl font-bold">À propos de {identity.shortName}</h1>
 
     <div class="mt-10 grid gap-10 lg:grid-cols-2 lg:items-center">
       <div class="reveal space-y-4 text-text-muted">

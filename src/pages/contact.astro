@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MoroccanOrnament from '../components/MoroccanOrnament.astro';
 import { contact, hours } from '../config/site.config';
 ---
 
 <BaseLayout title="Contact" path="/contact">
-  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 lg:grid-cols-2">
+  <section class="relative overflow-hidden mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 lg:grid-cols-2">
+    <MoroccanOrnament corner="top-right" size={220} />
     <div>
       <h1 class="font-display text-4xl font-bold">Contact</h1>
       <dl class="mt-8 space-y-6 text-sm">
