@@ -1,0 +1,16 @@
+---
+// A thin recurring 8-point-star motif used between sections — the same
+// visual language as the hero illustration and logo, repeated as a small
+// decorative thread through the page instead of appearing once and never
+// again. Deliberately understated: 20px tall, low-opacity, one color.
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<div class:list={['flex items-center justify-center gap-3 py-2', className]} aria-hidden="true">
+  <span class="h-px w-12 bg-border"></span>
+  <img src="/images/decor/star-navygold.webp" alt="" class="h-5 w-5 opacity-80" />
+  <span class="h-px w-12 bg-border"></span>
+</div>

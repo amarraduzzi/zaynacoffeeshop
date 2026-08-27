@@ -1,0 +1,69 @@
+---
+// The site's signature decorative banner, built from the real illustrated
+// asset sheet the owner provided (hand-painted Moroccan café elements —
+// mosaic medallion, keyhole arch, lantern, latte-art cup, mint, coffee
+// beans, brass teapot, skyline silhouette). Each element was cut out of
+// that sheet into its own transparent WebP (see public/images/decor/) and
+// is composed here as real images, not redrawn shapes — this is the actual
+// artwork, reused as a recurring visual thread across every page.
+//
+// `variant="full"` = the denser two-corner composition (homepage hero).
+// `variant="strip"` = a shorter, lighter version for the page-title bands
+// on secondary pages.
+interface Props {
+  variant?: 'full' | 'strip';
+  class?: string;
+}
+const { variant = 'full', class: className = '' } = Astro.props;
+const isFull = variant === 'full';
+const d = '/images/decor';
+---
+
+<div class:list={['pointer-events-none absolute inset-0 overflow-hidden', className]} aria-hidden="true">
+  <!-- soft cream base + warm glow so the illustration reads as one scene -->
+  <div class="absolute inset-0 bg-background" />
+  <div class="absolute inset-0 opacity-[0.06]" style={`background-image:url(${d}/cream-pattern.webp); background-size:220px 220px;`} />
+
+  <!-- TOP-LEFT: terracotta blob + coffee beans, spilling off the corner -->
+  <img
+    src={`${d}/blob-terracotta.webp`}
+    alt=""
+    class:list={['absolute -left-6 -top-10 w-[280px] sm:w-[340px]', !isFull && 'w-[200px] sm:w-[240px] -top-14']}
+  />
+  <img src={`${d}/star-red.webp`} alt="" class="absolute left-[210px] top-6 w-10 opacity-80 hidden sm:block" />
+  <img src={`${d}/star-navygold.webp`} alt="" class="absolute left-[60px] top-[150px] w-9 opacity-80" />
+  {isFull && <img src={`${d}/star-gold-small.webp`} alt="" class="absolute left-[300px] top-[40px] w-6 opacity-70 hidden md:block" />}
+
+  <!-- BOTTOM-LEFT: skyline silhouette -->
+  <img
+    src={`${d}/skyline.webp`}
+    alt=""
+    class:list={['absolute -left-4 bottom-0 w-[220px] opacity-60 hidden sm:block', !isFull && 'w-[160px]']}
+  />
+
+  <!-- RIGHT SIDE: arch + latte-art cup + lantern + mint + beans cluster -->
+  <div class:list={['absolute -right-6 bottom-0 flex items-end', !isFull && 'scale-[0.75] origin-bottom-right']}>
+    <img src={`${d}/arch-filled.webp`} alt="" class="w-[190px] sm:w-[230px] opacity-95" />
+    <img
+      src={`${d}/coffee-cup.webp`}
+      alt=""
+      class="absolute bottom-2 left-1/2 w-[200px] sm:w-[240px] -translate-x-1/2 drop-shadow-lg"
+    />
+    <img src={`${d}/mint.webp`} alt="" class="absolute bottom-0 left-3 w-14 sm:w-16" />
+    <img src={`${d}/beans.webp`} alt="" class="absolute bottom-1 right-2 w-14 sm:w-16" />
+  </div>
+  <img
+    src={`${d}/lantern-gold.webp`}
+    alt=""
+    class:list={['absolute right-4 top-0 w-16 sm:w-20 opacity-90', !isFull && 'w-12 sm:w-16']}
+  />
+  <img src={`${d}/star-dotted-outline.webp`} alt="" class="absolute right-[140px] top-4 w-10 opacity-70 hidden sm:block" />
+
+  {isFull && (
+    <>
+      <img src={`${d}/squiggle.webp`} alt="" class="absolute right-[260px] top-10 w-24 opacity-50 hidden lg:block" />
+      <img src={`${d}/teapot.webp`} alt="" class="absolute left-1/2 bottom-0 w-24 -translate-x-1/2 opacity-80 hidden xl:block" />
+      <img src={`${d}/star-navy-small.webp`} alt="" class="absolute left-[45%] top-8 w-6 opacity-60 hidden md:block" />
+    </>
+  )}
+</div>
