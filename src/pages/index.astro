@@ -5,6 +5,7 @@ import MoroccanHeroBanner from '../components/MoroccanHeroBanner.astro';
 import { identity, contact, hours, ratings, priceRange, amenities } from '../config/site.config';
 import { menuHighlights } from '../content/menu-highlights';
 import { testimonials } from '../content/testimonials';
+import { popularProducts } from '../content/popular-products';
 ---
 
 <BaseLayout title="Accueil" path="/">
@@ -47,8 +48,23 @@ import { testimonials } from '../content/testimonials';
     </div>
   </section>
 
+  <!-- POPULAR AT ZAYNA — photo strip of real products -->
+  <section class="bg-surface">
+    <div class="reveal mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+      <h2 class="font-display text-3xl font-bold text-center">Populaire chez Zayna</h2>
+      <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        {popularProducts.map((item) => (
+          <figure class="card-lift overflow-hidden rounded-xl border border-border bg-surface">
+            <img src={item.image} alt={item.name} class="aspect-square w-full object-cover" loading="lazy" />
+            <figcaption class="px-2 py-2 text-center text-xs font-medium text-text-muted">{item.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- QUICK INFO STRIP -->
-  <section class="border-y border-border bg-surface">
+  <section class="border-y border-border bg-surface-muted">
     <div class="reveal mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 grid gap-6 sm:grid-cols-3 text-sm">
       <div>
         <p class="font-semibold text-primary">Adresse</p>
