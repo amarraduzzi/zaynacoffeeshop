@@ -4,7 +4,7 @@ import { identity } from '../config/site.config';
 // Hand-written static sitemap (see astro.config.mjs for why: the
 // @astrojs/sitemap integration crashes at build time against this Astro
 // version). Update this list if pages are added or removed.
-const routes = ['', 'carte', 'menu', 'avis', 'faq', 'contact'];
+const routes = ['', 'carte', 'menu', 'galerie', 'avis', 'faq', 'contact'];
 const paths = [
   ...routes,
   ...routes.map((r) => `en${r ? '/' + r : ''}`),

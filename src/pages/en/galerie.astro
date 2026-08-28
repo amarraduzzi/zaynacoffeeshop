@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MoroccanHeroBanner from '../../components/MoroccanHeroBanner.astro';
+import { popularProductsEn as popularProducts } from '../../content/popular-products';
+---
+
+<BaseLayout title="Gallery" path="/en/galerie">
+  <section class="relative h-56 overflow-hidden">
+    <MoroccanHeroBanner variant="strip" />
+    <div class="relative flex h-full items-center justify-center px-4 text-center">
+      <h1 class="rounded-2xl bg-surface px-8 py-4 font-display text-4xl font-bold shadow-sm">
+        Gallery
+      </h1>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+    <p class="text-center text-text-muted max-w-2xl mx-auto">
+      A taste of what's waiting for you at Zayna — hungry already? Order directly online.
+    </p>
+    <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {popularProducts.map((item) => (
+        <figure class="card-lift overflow-hidden rounded-xl border border-border bg-surface">
+          <img src={item.image} alt={item.name} class="aspect-square w-full object-cover" loading="lazy" />
+          <figcaption class="px-2 py-2 text-center text-xs font-medium text-text-muted">{item.name}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="mt-12 text-center">
+      <a href="/en/menu" class="inline-block rounded-full bg-primary px-6 py-3 text-sm font-semibold text-surface hover:bg-primary-dark transition-colors">
+        Order online
+      </a>
+    </div>
+  </section>
+</BaseLayout>
