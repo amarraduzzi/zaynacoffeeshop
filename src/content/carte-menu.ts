@@ -35,7 +35,7 @@ export const carteMenu: CarteSection[] = [
       },
       {
         name: 'Option 3',
-        description: 'Toast Zayna, avocat, œuf, salade, boisson chaude.',
+        description: 'Zayna toast, avocat, oeuf, salade, boisson chaude.',
         price: '59 DH',
       },
     ],
@@ -90,11 +90,10 @@ export const carteMenu: CarteSection[] = [
   },
   {
     name: 'Extras',
-    intro: 'À ajouter à n’importe quel plat.',
     items: [
-      { name: 'Œuf', description: '', price: '+10 DH' },
+      { name: 'Egg', description: '', price: '+10 DH' },
       { name: 'Jambon', description: '', price: '+15 DH' },
-      { name: 'Patate douce', description: '', price: '+20 DH' },
+      { name: 'Sweet potato', description: '', price: '+20 DH' },
     ],
   },
   {
@@ -130,8 +129,7 @@ export const carteMenu: CarteSection[] = [
     ],
   },
   {
-    name: 'Desserts',
-    intro: 'Une sélection de pâtisseries maison, à choisir directement au comptoir.',
+    name: 'Dessert at the counter',
     items: [],
   },
   {
@@ -173,7 +171,7 @@ export const carteMenu: CarteSection[] = [
       },
       { name: 'Limonade à l’Hibiscus', description: '', price: '28 DH', image: '/images/menu/bissap.jpg' },
       { name: 'Pink Energy', description: '', price: '30 DH' },
-      { name: 'Green Boost', description: 'Concombre, pomme, épinards, citron', price: '30 DH' },
+      { name: 'Green Boost', description: '', price: '30 DH' },
       { name: 'Olmès 50 cl', description: '', price: '20 DH' },
       { name: 'Eau Minérale 33 CL', description: '', price: '15 DH' },
     ],
@@ -241,7 +239,7 @@ export const carteMenuEn: CarteSection[] = [
       },
       {
         name: 'Option 3',
-        description: 'Zayna toast, avocado, egg, salad, hot drink.',
+        description: 'Zayna toast, avocat, oeuf, salade, boisson chaude.',
         price: '59 DH',
       },
     ],
@@ -296,10 +294,9 @@ export const carteMenuEn: CarteSection[] = [
   },
   {
     name: 'Extras',
-    intro: 'Add to any dish.',
     items: [
       { name: 'Egg', description: '', price: '+10 DH' },
-      { name: 'Ham', description: '', price: '+15 DH' },
+      { name: 'Jambon', description: '', price: '+15 DH' },
       { name: 'Sweet potato', description: '', price: '+20 DH' },
     ],
   },
@@ -336,8 +333,7 @@ export const carteMenuEn: CarteSection[] = [
     ],
   },
   {
-    name: 'Dessert',
-    intro: 'A selection of homemade pastries, to choose right at the counter.',
+    name: 'Dessert at the counter',
     items: [],
   },
   {
@@ -379,7 +375,7 @@ export const carteMenuEn: CarteSection[] = [
       },
       { name: 'Hibiscus Lemonade', description: '', price: '28 DH', image: '/images/menu/bissap.jpg' },
       { name: 'Pink Energy', description: '', price: '30 DH' },
-      { name: 'Green Boost', description: 'Cucumber, apple, spinach, lemon', price: '30 DH' },
+      { name: 'Green Boost', description: '', price: '30 DH' },
       { name: 'Olmès 50 cl', description: '', price: '20 DH' },
       { name: 'Mineral Water 33 CL', description: '', price: '15 DH' },
     ],
@@ -494,7 +490,6 @@ export const carteMenuAr: CarteSection[] = [
   },
   {
     name: 'إضافات',
-    intro: 'يمكن إضافتها إلى أي طبق.',
     items: [
       { name: 'بيضة', description: '', price: '+10 درهم' },
       { name: 'لحم مقدد', description: '', price: '+15 درهم' },
@@ -534,8 +529,7 @@ export const carteMenuAr: CarteSection[] = [
     ],
   },
   {
-    name: 'الحلويات',
-    intro: 'تشكيلة من الحلويات المنزلية، تُختار مباشرة من الطاولة.',
+    name: 'حلوى عند الطاولة',
     items: [],
   },
   {
@@ -577,7 +571,7 @@ export const carteMenuAr: CarteSection[] = [
       },
       { name: 'ليمونادة الكركديه', description: '', price: '28 درهم', image: '/images/menu/bissap.jpg' },
       { name: 'بينك إنرجي', description: '', price: '30 درهم' },
-      { name: 'غرين بوست', description: 'خيار، تفاح، سبانخ، ليمون', price: '30 درهم' },
+      { name: 'غرين بوست', description: '', price: '30 درهم' },
       { name: 'أولميس 50 سل', description: '', price: '20 درهم' },
       { name: 'مياه معدنية 33 سل', description: '', price: '15 درهم' },
     ],
