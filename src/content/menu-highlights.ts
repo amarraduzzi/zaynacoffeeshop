@@ -140,7 +140,7 @@ export const menuHighlights: MenuCategory[] = [
       {
         // Confirmed by the client: same photo used for both bowls on Glovo.
         name: 'Golden Bowl',
-        description: 'Banane, prune, granola maison, purée d’oléagineux',
+        description: 'Banane, porridge maison, purée d’oléagineux',
         price: 'MAD 59',
         image: '/images/menu/zayna-bowl.jpg',
       },
@@ -318,7 +318,7 @@ export const menuHighlightsEn: MenuCategory[] = [
       },
       {
         name: 'Golden Bowl',
-        description: 'Banana, plum, homemade granola, nut butter',
+        description: 'Banana, homemade porridge, nut butter',
         price: 'MAD 59',
         image: '/images/menu/zayna-bowl.jpg',
       },
@@ -492,7 +492,7 @@ export const menuHighlightsAr: MenuCategory[] = [
       },
       {
         name: 'الطبق الذهبي',
-        description: 'موز، برقوق، غرانولا منزلية، زبدة مكسرات',
+        description: 'موز، عصيدة منزلية، زبدة مكسرات',
         price: '59 درهم',
         image: '/images/menu/zayna-bowl.jpg',
       },
