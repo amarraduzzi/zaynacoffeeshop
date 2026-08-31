@@ -13,9 +13,10 @@ export default defineConfig({
   // Hand-written static sitemap endpoint (src/pages/sitemap.xml.ts) instead
   // of @astrojs/sitemap — see amplify-restaurant-site's original config for
   // why (integration crashes against this Astro version).
-  // React is only used for the /menu ordering cart (src/cart/*) — an
-  // interactive island, not a site-wide framework. Every other page stays
-  // plain Astro/HTML.
+  // React was only ever used for the /menu ordering cart (src/cart/*). That
+  // cart was removed at the client's request (2026-08-31) and no page
+  // imports React any more, so this integration is currently unused —
+  // left in place in case ordering comes back; safe to remove otherwise.
   integrations: [tailwind({ applyBaseStyles: false }), react()],
   // Static output: every page ships as pre-rendered HTML, no client JS
   // needed to read it — good for SEO and for AI answer engines that don't

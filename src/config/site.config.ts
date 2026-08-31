@@ -36,9 +36,9 @@ export const contact = {
     display: '06 15 81 06 80',
     href: 'tel:+212615810680',
   },
-  // Confirmed by the client (2026-08-27): same number as the phone contact,
-  // used as the WhatsApp order number on /menu. Digits only, country code,
-  // no + or spaces — this is the exact format wa.me needs.
+  // Confirmed by the client (2026-08-27): same number as the phone contact.
+  // Was used as the WhatsApp order number by the now-removed /menu cart
+  // (2026-08-31) — kept here in case WhatsApp ordering comes back later.
   whatsappNumber: '212615810680',
   // TODO: no email was visible on the Google listing — add one once available.
   email: null,
@@ -84,15 +84,14 @@ export const socials = {
   tiktok: null as string | null,
 };
 
-// Two distinct menus by design (client instruction, 2026-08-27): "Carte" is
-// the in-store menu people read while sitting at the café; "Commander" is
-// the Glovo-sourced menu, now built as a real add-to-cart + WhatsApp-checkout
-// flow directly on this site (see src/cart/*) — NOT a separate project.
-// Keep the two menus as separate pages/content files — do not merge.
+// Online ordering (the WhatsApp cart at /menu) was removed at the client's
+// request (2026-08-31) — the client no longer wants to take orders through
+// the site. "Carte" (the in-store menu people read at the café) is the only
+// menu now. The old cart code still sits in src/cart/ but nothing imports it
+// any more, so it's dead code kept only for reference — safe to delete later.
 export const nav = [
   { label: 'Accueil', href: '/' },
   { label: 'Carte', href: '/carte' },
-  { label: 'Commander', href: '/menu' },
   { label: 'Galerie', href: '/galerie' },
   { label: 'Avis', href: '/avis' },
   { label: 'FAQ', href: '/faq' },
@@ -104,7 +103,6 @@ export const nav = [
 export const navLabels: Record<string, Record<'fr' | 'en' | 'ar', string>> = {
   '/': { fr: 'Accueil', en: 'Home', ar: 'الرئيسية' },
   '/carte': { fr: 'Carte', en: 'In-store menu', ar: 'القائمة' },
-  '/menu': { fr: 'Commander', en: 'Order online', ar: 'اطلب الآن' },
   '/galerie': { fr: 'Galerie', en: 'Gallery', ar: 'معرض الصور' },
   '/avis': { fr: 'Avis', en: 'Reviews', ar: 'التقييمات' },
   '/faq': { fr: 'FAQ', en: 'FAQ', ar: 'الأسئلة الشائعة' },
