@@ -58,6 +58,7 @@ export const menuHighlights: MenuCategory[] = [
         name: 'Zayna Bagel',
         description: 'Poulet, poivrons grillés, fromage, patate douce',
         price: 'MAD 65',
+        image: '/images/menu/bagel-veggie-delice.jpg',
       },
       {
         name: 'Bagel Kofta',
@@ -240,6 +241,7 @@ export const menuHighlightsEn: MenuCategory[] = [
         name: 'Zayna Bagel',
         description: 'Chicken, grilled peppers, cheese, sweet potatoes',
         price: 'MAD 65',
+        image: '/images/menu/bagel-veggie-delice.jpg',
       },
       {
         name: 'Kofta Bagel',
@@ -414,6 +416,7 @@ export const menuHighlightsAr: MenuCategory[] = [
         name: 'بيغل زاينة',
         description: 'دجاج، فلفل مشوي، جبن، بطاطا حلوة',
         price: '65 درهم',
+        image: '/images/menu/bagel-veggie-delice.jpg',
       },
       {
         name: 'بيغل الكفتة',

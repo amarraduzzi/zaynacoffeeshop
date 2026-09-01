@@ -59,6 +59,7 @@ export const menuItems: MenuItem[] = [
     name: 'Zayna Bagel',
     description: 'Poulet, poivrons grillés, fromage, patate douce',
     priceMAD: 65,
+    image: '/images/menu/bagel-veggie-delice.jpg',
   },
   {
     id: 'bagel-poulet-pesto',
@@ -220,7 +221,7 @@ export const menuItems: MenuItem[] = [
 ];
 
 export const menuItemsEn: MenuItem[] = [
-  { id: 'zayna-bagel', categoryId: 'bagels', name: 'Zayna Bagel', description: 'Chicken, grilled peppers, cheese, sweet potatoes', priceMAD: 65 },
+  { id: 'zayna-bagel', categoryId: 'bagels', name: 'Zayna Bagel', description: 'Chicken, grilled peppers, cheese, sweet potatoes', priceMAD: 65, image: '/images/menu/bagel-veggie-delice.jpg' },
   { id: 'bagel-poulet-pesto', categoryId: 'bagels', name: 'Chicken Pesto Bagel', description: 'Roasted chicken, pesto, poached egg, arugula', priceMAD: 65, image: '/images/menu/bagel-poulet-pesto.jpg', tags: ['Popular'] },
   { id: 'bagel-kofta', categoryId: 'bagels', name: 'Kofta Bagel', description: 'Grilled kofta patty, salad, sesame bread', priceMAD: 75, image: '/images/menu/bagel-kofta.jpg' },
   { id: 'fondant-dghmira', categoryId: 'bagels', name: 'Fondant Dghmira', description: 'Shredded dghmira-style meat, sesame bread', priceMAD: 65, image: '/images/menu/fondant-dghmira.jpg' },
@@ -243,7 +244,7 @@ export const menuItemsEn: MenuItem[] = [
 ];
 
 export const menuItemsAr: MenuItem[] = [
-  { id: 'zayna-bagel', categoryId: 'bagels', name: 'بيغل زاينة', description: 'دجاج، فلفل مشوي، جبن، بطاطا حلوة', priceMAD: 65 },
+  { id: 'zayna-bagel', categoryId: 'bagels', name: 'بيغل زاينة', description: 'دجاج، فلفل مشوي، جبن، بطاطا حلوة', priceMAD: 65, image: '/images/menu/bagel-veggie-delice.jpg' },
   { id: 'bagel-poulet-pesto', categoryId: 'bagels', name: 'بيغل الدجاج بالبيستو', description: 'دجاج مشوي، بيستو، بيضة مسلوقة، جرجير', priceMAD: 65, image: '/images/menu/bagel-poulet-pesto.jpg', tags: ['الأكثر طلبًا'] },
   { id: 'bagel-kofta', categoryId: 'bagels', name: 'بيغل الكفتة', description: 'قطعة كفتة مشوية، سلطة، خبز بالسمسم', priceMAD: 75, image: '/images/menu/bagel-kofta.jpg' },
   { id: 'fondant-dghmira', categoryId: 'bagels', name: 'فوندان دغميرة', description: 'لحم مفروم على طريقة الدغميرة، خبز بالسمسم', priceMAD: 65, image: '/images/menu/fondant-dghmira.jpg' },
