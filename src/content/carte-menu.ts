@@ -166,6 +166,7 @@ export const carteMenu: CarteSection[] = [
   },
   {
     name: 'Dessert at the counter',
+    bannerImage: '/images/carte/scones-tea.jpg',
     items: [],
   },
   {
@@ -372,6 +373,7 @@ export const carteMenuEn: CarteSection[] = [
   },
   {
     name: 'Dessert at the counter',
+    bannerImage: '/images/carte/scones-tea.jpg',
     items: [],
   },
   {
@@ -570,6 +572,7 @@ export const carteMenuAr: CarteSection[] = [
   },
   {
     name: 'حلوى عند الطاولة',
+    bannerImage: '/images/carte/scones-tea.jpg',
     items: [],
   },
   {
