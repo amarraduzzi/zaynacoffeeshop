@@ -115,6 +115,41 @@ export const carteMenu: CarteSection[] = [
     ],
   },
   {
+    name: 'Bagels signature',
+    items: [
+      {
+        name: 'Zayna Bagel',
+        description: 'Poulet, poivrons grillés, fromage & patate douce.',
+        price: '65 DH',
+        image: '/images/menu/bagel-veggie-delice.jpg',
+      },
+      {
+        name: 'Dghmira Fondant',
+        description: 'Poulet, oignons caramélisés, patate douce & sauce du chef.',
+        price: '65 DH',
+        image: '/images/menu/fondant-dghmira.jpg',
+      },
+      {
+        name: 'Kofta Bagel',
+        description: 'Kofta grillée, sauce du chef, laitue, tomates séchées & pickles rouges.',
+        price: '75 DH',
+        image: '/images/menu/bagel-kofta.jpg',
+      },
+      {
+        name: 'Chicken Pesto',
+        description: 'Poulet rôti, sauce pesto & mozzarella.',
+        price: '65 DH',
+        image: '/images/menu/bagel-poulet-pesto.jpg',
+      },
+      {
+        name: 'Veggie Delight',
+        description: 'Légumes grillés, sauce pesto & mozzarella.',
+        price: '55 DH',
+        image: '/images/menu/bagel-veggie-delice.jpg',
+      },
+    ],
+  },
+  {
     name: 'Couscous',
     items: [
       { name: 'Couscous au poulet', description: '', price: '45 DH' },
@@ -175,40 +210,6 @@ export const carteMenu: CarteSection[] = [
       { name: 'Green Boost', description: '', price: '30 DH' },
       { name: 'Olmès 50 cl', description: '', price: '20 DH' },
       { name: 'Eau Minérale 33 CL', description: '', price: '15 DH' },
-    ],
-  },
-  {
-    name: 'Bagels signature',
-    items: [
-      {
-        name: 'Zayna Bagel',
-        description: 'Poulet, poivrons grillés, fromage & patate douce.',
-        price: '65 DH',
-      },
-      {
-        name: 'Dghmira Fondant',
-        description: 'Poulet, oignons caramélisés, patate douce & sauce du chef.',
-        price: '65 DH',
-        image: '/images/menu/fondant-dghmira.jpg',
-      },
-      {
-        name: 'Kofta Bagel',
-        description: 'Kofta grillée, sauce du chef, laitue, tomates séchées & pickles rouges.',
-        price: '75 DH',
-        image: '/images/menu/bagel-kofta.jpg',
-      },
-      {
-        name: 'Chicken Pesto',
-        description: 'Poulet rôti, sauce pesto & mozzarella.',
-        price: '65 DH',
-        image: '/images/menu/bagel-poulet-pesto.jpg',
-      },
-      {
-        name: 'Veggie Delight',
-        description: 'Légumes grillés, sauce pesto & mozzarella.',
-        price: '55 DH',
-        image: '/images/menu/bagel-veggie-delice.jpg',
-      },
     ],
   },
 ];
@@ -320,6 +321,41 @@ export const carteMenuEn: CarteSection[] = [
     ],
   },
   {
+    name: 'Signature Bagels',
+    items: [
+      {
+        name: 'Zayna Bagel',
+        description: 'Chicken, grilled peppers, cheese & sweet potatoes.',
+        price: '65 DH',
+        image: '/images/menu/bagel-veggie-delice.jpg',
+      },
+      {
+        name: 'Dghmira Fondant',
+        description: 'Chicken, caramelized onions, sweet potatoes & chef’s sauce.',
+        price: '65 DH',
+        image: '/images/menu/fondant-dghmira.jpg',
+      },
+      {
+        name: 'Kofta Bagel',
+        description: 'Grilled kofta, chef’s sauce, lettuce, sun-dried tomatoes & red pickles.',
+        price: '75 DH',
+        image: '/images/menu/bagel-kofta.jpg',
+      },
+      {
+        name: 'Chicken Pesto',
+        description: 'Roasted chicken, pesto & mozzarella.',
+        price: '65 DH',
+        image: '/images/menu/bagel-poulet-pesto.jpg',
+      },
+      {
+        name: 'Veggie Delight',
+        description: 'Grilled vegetables, pesto & mozzarella.',
+        price: '55 DH',
+        image: '/images/menu/bagel-veggie-delice.jpg',
+      },
+    ],
+  },
+  {
     name: 'Couscous',
     items: [
       { name: 'Chicken couscous', description: '', price: '45 DH' },
@@ -380,40 +416,6 @@ export const carteMenuEn: CarteSection[] = [
       { name: 'Green Boost', description: '', price: '30 DH' },
       { name: 'Olmès 50 cl', description: '', price: '20 DH' },
       { name: 'Mineral Water 33 CL', description: '', price: '15 DH' },
-    ],
-  },
-  {
-    name: 'Signature Bagels',
-    items: [
-      {
-        name: 'Zayna Bagel',
-        description: 'Chicken, grilled peppers, cheese & sweet potatoes.',
-        price: '65 DH',
-      },
-      {
-        name: 'Dghmira Fondant',
-        description: 'Chicken, caramelized onions, sweet potatoes & chef’s sauce.',
-        price: '65 DH',
-        image: '/images/menu/fondant-dghmira.jpg',
-      },
-      {
-        name: 'Kofta Bagel',
-        description: 'Grilled kofta, chef’s sauce, lettuce, sun-dried tomatoes & red pickles.',
-        price: '75 DH',
-        image: '/images/menu/bagel-kofta.jpg',
-      },
-      {
-        name: 'Chicken Pesto',
-        description: 'Roasted chicken, pesto & mozzarella.',
-        price: '65 DH',
-        image: '/images/menu/bagel-poulet-pesto.jpg',
-      },
-      {
-        name: 'Veggie Delight',
-        description: 'Grilled vegetables, pesto & mozzarella.',
-        price: '55 DH',
-        image: '/images/menu/bagel-veggie-delice.jpg',
-      },
     ],
   },
 ];
@@ -517,6 +519,41 @@ export const carteMenuAr: CarteSection[] = [
     ],
   },
   {
+    name: 'بيغلات سيغنتشر',
+    items: [
+      {
+        name: 'بيغل زاينة',
+        description: 'دجاج، فلفل مشوي، جبن وبطاطا حلوة.',
+        price: '65 درهم',
+        image: '/images/menu/bagel-veggie-delice.jpg',
+      },
+      {
+        name: 'فوندان دغميرة',
+        description: 'دجاج، بصل مكرمل، بطاطا حلوة وصلصة الشيف.',
+        price: '65 درهم',
+        image: '/images/menu/fondant-dghmira.jpg',
+      },
+      {
+        name: 'بيغل الكفتة',
+        description: 'كفتة مشوية، صلصة الشيف، خس، طماطم مجففة ومخلل أحمر.',
+        price: '75 درهم',
+        image: '/images/menu/bagel-kofta.jpg',
+      },
+      {
+        name: 'تشيكن بيستو',
+        description: 'دجاج مشوي، صلصة البيستو وموزاريلا.',
+        price: '65 درهم',
+        image: '/images/menu/bagel-poulet-pesto.jpg',
+      },
+      {
+        name: 'فيجي ديلايت',
+        description: 'خضار مشوية، صلصة البيستو وموزاريلا.',
+        price: '55 درهم',
+        image: '/images/menu/bagel-veggie-delice.jpg',
+      },
+    ],
+  },
+  {
     name: 'كسكس',
     items: [
       { name: 'كسكس بالدجاج', description: '', price: '45 درهم' },
@@ -577,40 +614,6 @@ export const carteMenuAr: CarteSection[] = [
       { name: 'غرين بوست', description: '', price: '30 درهم' },
       { name: 'أولميس 50 سل', description: '', price: '20 درهم' },
       { name: 'مياه معدنية 33 سل', description: '', price: '15 درهم' },
-    ],
-  },
-  {
-    name: 'بيغلات سيغنتشر',
-    items: [
-      {
-        name: 'بيغل زاينة',
-        description: 'دجاج، فلفل مشوي، جبن وبطاطا حلوة.',
-        price: '65 درهم',
-      },
-      {
-        name: 'فوندان دغميرة',
-        description: 'دجاج، بصل مكرمل، بطاطا حلوة وصلصة الشيف.',
-        price: '65 درهم',
-        image: '/images/menu/fondant-dghmira.jpg',
-      },
-      {
-        name: 'بيغل الكفتة',
-        description: 'كفتة مشوية، صلصة الشيف، خس، طماطم مجففة ومخلل أحمر.',
-        price: '75 درهم',
-        image: '/images/menu/bagel-kofta.jpg',
-      },
-      {
-        name: 'تشيكن بيستو',
-        description: 'دجاج مشوي، صلصة البيستو وموزاريلا.',
-        price: '65 درهم',
-        image: '/images/menu/bagel-poulet-pesto.jpg',
-      },
-      {
-        name: 'فيجي ديلايت',
-        description: 'خضار مشوية، صلصة البيستو وموزاريلا.',
-        price: '55 درهم',
-        image: '/images/menu/bagel-veggie-delice.jpg',
-      },
     ],
   },
 ];
